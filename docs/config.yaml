@@ -21,7 +21,7 @@ properties:
     properties:
       Origin:
         type: array
-        description: Comma-separated list of allowed origins; use an asterisk (*) to allow access from everywhere.
+        description: Comma-separated list of allowed origins; use an asterisk (*) to allow access from everywhere. Note that the asterisk (*) cannot be used if you plan to authenticate users as well (by using the `withCredentials` flag on the client side). In this case, the explicit domain(s) must be specified in the `Origin` and `LoginOrigin` properties of the configuration file.
         items:
           type: string
       LoginOrigin:
@@ -55,6 +55,20 @@ properties:
           bucket:
             type: string
             description: Bucket name on Couchbase Server or a Walrus bucket. The default is the database name.
+            default: the database name
+          import_docs:
+            type: boolean
+            description: If set to `true`, causes the Sync Gateway to scan the bucket on startup looking for documents that have no `_sync` metadata, and adding that metadata. You only want to have this on when you do the first import, because it will slow down the startup of the Sync Gateway. You also only want to run a single Sync Gateway while in this mode, otherwise they'll step on each other's toes tying to generate the `_sync` metadata at the same time.
+            default: false
+          channel_index:
+            type: object
+            properties:
+              server:
+                type: string
+                description: Hostname to the Couchbase Server cluster.
+              bucket:
+                type: string
+                description: Bucket name for channel indexing. A common name is "channel_index".
           cache:
             type: object
             description: Database cache configuration.
@@ -292,6 +306,83 @@ properties:
     description: Absolute or relative path on the filesystem to the log file. A relative path is from the directory that contains the Sync Gateway executable file.
     type: string
     default: 'stderr'
+  logging:
+    description: The logging object.
+    type: object
+    properties:
+      default:
+        type: object
+        properties:
+          logFilePath:
+            description: Absolute or relative path on the filesystem to the log file. A relative path is from the directory that contains the Sync Gateway executable file.
+            type: string
+            default: 'stderr'
+          logKeys:
+            description: Comma-separated list of log keys to enable for diagnostic logging. Use ["*"] to enable logging for all log keys.
+            type: array
+            items:
+              type: string
+              enum:
+                - Access:
+                    description: Anytime an access() call is made in the sync function.
+                - Attach:
+                    description: Attachment processing.
+                - Auth:
+                    description: Authentication.
+                - Bucket:
+                    description: Sync Gateway interactions with the bucket (verbose logging).
+                - Cache:
+                    description: Interactions with Sync Gateway's in-memory channel cache.
+                - Changes:
+                    description: Processing of _changes requests.
+                - CRUD:
+                    description: Updates made by Sync Gateway to documents.
+                - DCP:
+                    description: DCP-feed processing (verbose logging).
+                - Events:
+                    description: Event processing (webhooks).
+                - Feed:
+                    description: Server-feed processing.
+                - HTTP:
+                    description: All requests made to the Sync Gateway REST APIs (Sync and Admin). Note that the log keyword HTTP is always enabled, which means that HTTP requests and error responses are always logged (in a non-verbose manner). HTTP+ provides more verbose HTTP logging.
+                - Replicate:
+                    description: Log messages related to replications between Sync Gateways (using sg-replicate). This tag cannot be used for replications initiated by Couchbase Lite.
+            default: '["HTTP"]'
+          logLevel:
+            description: The level of logging.
+            type: array
+            items:
+              type: string
+              enum:
+                - debug:
+                    description: 'Print all debug messages. With this level of logging, logs are usually voluminous. This log level is usually disabled in production.'
+                - info:
+                    description: 'Pint all information messages.'
+                - error:
+                    description: 'Print all errors. If an application is running smoothly it should not generate any error level logs.'
+                - panic:
+                    description: 'Logs a message, then panics.'
+                - fatal:
+                    description: 'Logs a message, then calls os.Exit(1).'
+            default: '["info"]'
+          rotation:
+            description: The log file may be rotated by defining a "rotation" sub document. See details in the table below.
+            type: object
+            properties:
+              maxsize:
+                type: integer
+                description: The maximum size in MB of the log file before it gets rotated.
+                default: 100
+              maxage:
+                type: integer
+                description: The maximum number of days to retain old log files.
+              maxbackups:
+                type: integer
+                description: The maximum number of old log files to retain.
+              localtime:
+                type: boolean
+                description: If true, it uses the computer's local time to format the backup timestamp.
+                default: 'UTC'
   maxCouchbaseConnections:
     description: Maximum number of sockets to open to a Couchbase Server node.
     type: integer
@@ -337,6 +428,8 @@ properties:
           description: Specifies whether the replication should be in continuous mode.
         changes_feed_limit:
           type: string
+          description: The maximum number of change entries to pull in each loop of a continous changes feed.
+          default: 50
         filter:
           type: string
           description: Indicates that the documents should be filtered using the specified filter function name. A common value used when replicating from Sync Gateway is sync_gateway/bychannel to limit the pull replication to a set of channels.
