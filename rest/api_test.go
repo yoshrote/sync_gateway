@@ -934,6 +934,7 @@ func TestBulkDocsUnusedSequencesMultiRevDoc(t *testing.T) {
 	spec := base.GetTestBucketSpec(base.DataBucket)
 	username, password, _ := spec.Auth.GetCredentials()
 
+	rt1UseXattrs := rt1.GetDatabase().UseXattrs()
 	_, err := rt2.RestTesterServerContext.AddDatabaseFromConfig(&DbConfig{
 		BucketConfig: BucketConfig{
 			Server:   &server,
@@ -942,6 +943,7 @@ func TestBulkDocsUnusedSequencesMultiRevDoc(t *testing.T) {
 			Password: password,
 		},
 		Name: "db",
+		EnableXattrs: &rt1UseXattrs,
 	})
 
 	assertNoError(t, err, "Failed to add database to rest tester")
@@ -1027,6 +1029,7 @@ func TestBulkDocsUnusedSequencesMultiRevDoc2SG(t *testing.T) {
 	spec := base.GetTestBucketSpec(base.DataBucket)
 	username, password, _ := spec.Auth.GetCredentials()
 
+	rt1UseXattrs := rt1.GetDatabase().UseXattrs()
 	_, err := rt2.RestTesterServerContext.AddDatabaseFromConfig(&DbConfig{
 		BucketConfig: BucketConfig{
 			Server:   &server,
@@ -1035,6 +1038,7 @@ func TestBulkDocsUnusedSequencesMultiRevDoc2SG(t *testing.T) {
 			Password: password,
 		},
 		Name: "db",
+		EnableXattrs: &rt1UseXattrs,
 	})
 
 	assertNoError(t, err, "Failed to add database to rest tester")
@@ -2965,6 +2969,23 @@ func TestDocExpiry(t *testing.T) {
 	_, ok = body["_exp"]
 	assert.Equals(t, ok, false)
 
+}
+
+// Validate that sync function based expiry writes the _exp property to SG metadata in addition to setting CBS expiry
+func TestDocSyncFunctionExpiry(t *testing.T) {
+	rt := RestTester{SyncFn: `function(doc) {expiry(doc.expiry)}`}
+	defer rt.Close()
+
+	var body db.Body
+	response := rt.SendRequest("PUT", "/db/expNumericTTL", `{"expiry":100}`)
+	assertStatus(t, response, 201)
+
+	response = rt.SendRequest("GET", "/db/expNumericTTL?show_exp=true", "")
+	assertStatus(t, response, 200)
+	json.Unmarshal(response.Body.Bytes(), &body)
+	value, ok := body["_exp"]
+	assert.Equals(t, ok, true)
+	log.Printf("value: %v", value)
 }
 
 // Reproduces https://github.com/couchbase/sync_gateway/issues/916.  The test-only RestartListener operation used to simulate a
