@@ -16,8 +16,8 @@ import (
 	"github.com/coreos/go-oidc/jose"
 	"github.com/coreos/go-oidc/oidc"
 	"github.com/couchbase/go-couchbase"
-	"github.com/couchbase/sync_gateway/base"
-	ch "github.com/couchbase/sync_gateway/channels"
+	"github.com/yoshrote/sync_gateway/base"
+	ch "github.com/yoshrote/sync_gateway/channels"
 )
 
 /** Manages user authentication for a database. */

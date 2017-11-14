@@ -17,7 +17,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/couchbase/sync_gateway/base"
+	"github.com/yoshrote/sync_gateway/base"
 )
 
 var indexReaderOneShotCount expvar.Int
@@ -139,7 +139,7 @@ func (k *kvChangeIndexReader) Init(options *CacheOptions, indexOptions *ChannelI
 }
 
 // Make sure that the index bucket and data bucket have correct sequence parity
-// https://github.com/couchbase/sync_gateway/issues/1133
+// https://github.com/yoshrote/sync_gateway/issues/1133
 func (k *kvChangeIndexReader) verifyBucketSequenceParity(context *DatabaseContext) error {
 
 	// Verify that the index bucket stable sequence is equal to or later to the

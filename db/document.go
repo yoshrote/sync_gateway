@@ -21,8 +21,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/couchbase/sync_gateway/base"
-	"github.com/couchbase/sync_gateway/channels"
+	"github.com/yoshrote/sync_gateway/base"
+	"github.com/yoshrote/sync_gateway/channels"
 )
 
 // When external revision storage is used, maximum body size (in bytes) to store inline.

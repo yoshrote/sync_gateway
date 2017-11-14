@@ -14,7 +14,7 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/couchbase/sync_gateway/base"
+	"github.com/yoshrote/sync_gateway/base"
 )
 
 func (db *Database) GetSpecial(doctype string, docid string) (Body, error) {

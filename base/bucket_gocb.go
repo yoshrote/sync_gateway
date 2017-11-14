@@ -128,7 +128,7 @@ func GetCouchbaseBucketGoCB(spec BucketSpec) (bucket *CouchbaseBucketGoCB, err e
 		// Set transcoder to SGTranscoder to avoid cases where it tries to write docs as []byte without setting
 		// the proper doctype flag and then later read them as JSON, which fails because it gets back a []byte
 		// initially this was using SGTranscoder for all GoCB buckets, but due to
-		// https://github.com/couchbase/sync_gateway/pull/2416#issuecomment-288882896
+		// https://github.com/yoshrote/sync_gateway/pull/2416#issuecomment-288882896
 		// it's only being set for data buckets
 		goCBBucket.SetTranscoder(SGTranscoder{})
 	}
@@ -714,7 +714,7 @@ func isRecoverableGoCBError(err error) bool {
 // 		net/http: request canceled while waiting for connection
 // Then it means that the view request timed out, most likely due to the fact that it's a stale=false query and
 // it's rebuilding the index.  In that case, it's desirable to return a more informative error than the
-// underlying net/url.Error. See https://github.com/couchbase/sync_gateway/issues/2639
+// underlying net/url.Error. See https://github.com/yoshrote/sync_gateway/issues/2639
 func isGoCBViewTimeoutError(err error) bool {
 	if err == nil {
 		return false
@@ -1971,7 +1971,7 @@ func (bucket CouchbaseBucketGoCB) Refresh() error {
 
 	// If it's possible to call GetCouchbaseBucketGoCB without error, consider it "refreshed" and return a nil error which will cause the reconnect
 	// loop to stop.  otherwise, return an error which will cause it to keep retrying
-	// This fixes: https://github.com/couchbase/sync_gateway/issues/2423#issuecomment-294651245
+	// This fixes: https://github.com/yoshrote/sync_gateway/issues/2423#issuecomment-294651245
 	bucketGoCb, err := GetCouchbaseBucketGoCB(bucket.spec)
 	if bucketGoCb != nil {
 		bucketGoCb.Close()

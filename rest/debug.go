@@ -15,7 +15,7 @@ import (
 	_ "github.com/couchbase/gomemcached/debug"
 	"github.com/samuel/go-metrics/metrics"
 
-	"github.com/couchbase/sync_gateway/base"
+	"github.com/yoshrote/sync_gateway/base"
 )
 
 const (

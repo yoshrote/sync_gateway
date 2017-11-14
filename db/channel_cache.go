@@ -5,8 +5,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/couchbase/sync_gateway/base"
-	"github.com/couchbase/sync_gateway/channels"
+	"github.com/yoshrote/sync_gateway/base"
+	"github.com/yoshrote/sync_gateway/channels"
 )
 
 var (
@@ -94,7 +94,7 @@ func (c *channelCache) addToCache(change *LogEntry, isRemoval bool) {
 }
 
 // If certain conditions are met, it's possible that this change will be added and then
-// immediately pruned, which causes the issues described in https://github.com/couchbase/sync_gateway/issues/2662
+// immediately pruned, which causes the issues described in https://github.com/yoshrote/sync_gateway/issues/2662
 func (c *channelCache) wouldBeImmediatelyPruned(change *LogEntry) bool {
 
 	// This might not be the one that is going to be immediately pruned

@@ -25,8 +25,8 @@ import (
 
 	"github.com/coreos/go-oidc/jose"
 	"github.com/coreos/go-oidc/key"
-	"github.com/couchbase/sync_gateway/auth"
-	"github.com/couchbase/sync_gateway/base"
+	"github.com/yoshrote/sync_gateway/auth"
+	"github.com/yoshrote/sync_gateway/base"
 )
 
 //This is the private RSA Key that will be used to sign all tokens

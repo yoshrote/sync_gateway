@@ -21,7 +21,7 @@ import (
 	phttp "github.com/coreos/go-oidc/http"
 	"github.com/coreos/go-oidc/oauth2"
 	"github.com/coreos/go-oidc/oidc"
-	"github.com/couchbase/sync_gateway/base"
+	"github.com/yoshrote/sync_gateway/base"
 )
 
 const (

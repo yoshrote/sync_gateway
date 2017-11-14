@@ -15,8 +15,8 @@ import (
 	"net/http"
 	"regexp"
 
-	"github.com/couchbase/sync_gateway/base"
-	ch "github.com/couchbase/sync_gateway/channels"
+	"github.com/yoshrote/sync_gateway/base"
+	ch "github.com/yoshrote/sync_gateway/channels"
 )
 
 /** A group that users can belong to, with associated channel permisisons. */

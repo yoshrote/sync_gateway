@@ -46,7 +46,7 @@ import password_remover
 # - pprof files (profiling / memory)
 # - Startup and running SG config
 #
-# See https://github.com/couchbase/sync_gateway/issues/1640
+# See https://github.com/yoshrote/sync_gateway/issues/1640
 #
 # Python version compatibility:
 # 

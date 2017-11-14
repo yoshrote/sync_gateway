@@ -32,9 +32,9 @@ import (
 
 	"github.com/gorilla/mux"
 
-	"github.com/couchbase/sync_gateway/auth"
-	"github.com/couchbase/sync_gateway/base"
-	"github.com/couchbase/sync_gateway/db"
+	"github.com/yoshrote/sync_gateway/auth"
+	"github.com/yoshrote/sync_gateway/base"
+	"github.com/yoshrote/sync_gateway/db"
 )
 
 // If set to true, JSON output will be pretty-printed.

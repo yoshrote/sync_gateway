@@ -16,8 +16,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/couchbase/sync_gateway/base"
-	"github.com/couchbase/sync_gateway/channels"
+	"github.com/yoshrote/sync_gateway/base"
+	"github.com/yoshrote/sync_gateway/channels"
 	"github.com/couchbaselabs/go.assert"
 )
 
@@ -695,7 +695,7 @@ func TestLowSequenceHandlingWithAccessGrant(t *testing.T) {
 	close(options.Terminator)
 }
 
-// Disabled until https://github.com/couchbase/sync_gateway/issues/3056 is fixed.
+// Disabled until https://github.com/yoshrote/sync_gateway/issues/3056 is fixed.
 func DisableTestLowSequenceHandlingNoDuplicates(t *testing.T) {
 
 	if base.TestUseXattrs() {
@@ -994,7 +994,7 @@ func TestChannelCacheSize(t *testing.T) {
 	}
 
 	if !base.UnitTestUrlIsWalrus() && base.TestUseXattrs() {
-		t.Skip("This test is known to be failing against couchbase server with XATTRS enabled.  See https://github.com/couchbase/sync_gateway/issues/2561#issuecomment-305353813")
+		t.Skip("This test is known to be failing against couchbase server with XATTRS enabled.  See https://github.com/yoshrote/sync_gateway/issues/2561#issuecomment-305353813")
 	} else {
 		log.Printf("Running TestChannelCacheSize.  base.UnitTestUrlIsWalrus(): %v,  base.TestUseXattrs(): %v", base.UnitTestUrlIsWalrus(), base.TestUseXattrs())
 	}

@@ -16,16 +16,16 @@ import (
 	"testing"
 
 	sgbucket "github.com/couchbase/sg-bucket"
-	"github.com/couchbase/sync_gateway/channels"
+	"github.com/yoshrote/sync_gateway/channels"
 
-	"github.com/couchbase/sync_gateway/base"
+	"github.com/yoshrote/sync_gateway/base"
 	"github.com/couchbaselabs/go.assert"
 )
 
 func TestDesignDocs(t *testing.T) {
 
 	if !base.UnitTestUrlIsWalrus() {
-		t.Skip("This test only works under walrus -- see https://github.com/couchbase/sync_gateway/issues/2954")
+		t.Skip("This test only works under walrus -- see https://github.com/yoshrote/sync_gateway/issues/2954")
 	}
 
 	var rt RestTester

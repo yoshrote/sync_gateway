@@ -13,7 +13,7 @@ import (
 	_ "github.com/robertkrimen/otto/underscore"
 
 	sgbucket "github.com/couchbase/sg-bucket"
-	"github.com/couchbase/sync_gateway/base"
+	"github.com/yoshrote/sync_gateway/base"
 )
 
 /** Result of running a channel-mapper function. */

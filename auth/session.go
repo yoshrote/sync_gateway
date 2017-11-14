@@ -13,7 +13,7 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/couchbase/sync_gateway/base"
+	"github.com/yoshrote/sync_gateway/base"
 )
 
 const kDefaultSessionTTL = 24 * time.Hour

@@ -11,7 +11,7 @@ package rest
 
 import (
 	"encoding/json"
-	"github.com/couchbase/sync_gateway/base"
+	"github.com/yoshrote/sync_gateway/base"
 	"net/http"
 	"net/url"
 )

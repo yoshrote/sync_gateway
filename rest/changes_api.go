@@ -22,9 +22,9 @@ import (
 
 	"golang.org/x/net/websocket"
 
-	"github.com/couchbase/sync_gateway/base"
-	ch "github.com/couchbase/sync_gateway/channels"
-	"github.com/couchbase/sync_gateway/db"
+	"github.com/yoshrote/sync_gateway/base"
+	ch "github.com/yoshrote/sync_gateway/channels"
+	"github.com/yoshrote/sync_gateway/db"
 )
 
 // Minimum value of _changes?heartbeat property

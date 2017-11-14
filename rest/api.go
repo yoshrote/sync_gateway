@@ -22,8 +22,8 @@ import (
 	"sync/atomic"
 
 	sgbucket "github.com/couchbase/sg-bucket"
-	"github.com/couchbase/sync_gateway/base"
-	"github.com/couchbase/sync_gateway/db"
+	"github.com/yoshrote/sync_gateway/base"
+	"github.com/yoshrote/sync_gateway/db"
 )
 
 // HTTP handler for the root ("/")

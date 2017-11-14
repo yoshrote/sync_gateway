@@ -10,14 +10,14 @@ import (
 	"github.com/couchbase/go-couchbase"
 
 	sgbucket "github.com/couchbase/sg-bucket"
-	"github.com/couchbase/sync_gateway/base"
-	"github.com/couchbase/sync_gateway/channels"
+	"github.com/yoshrote/sync_gateway/base"
+	"github.com/yoshrote/sync_gateway/channels"
 )
 
 // Bidirectional sync with an external Couchbase bucket.
 // Watches the bucket's tap feed and applies changes to the matching managed document.
 // Accepts local change notifications and makes equivalent changes to the external bucket.
-// See: https://github.com/couchbase/sync_gateway/wiki/Bucket-Shadowing
+// See: https://github.com/yoshrote/sync_gateway/wiki/Bucket-Shadowing
 type Shadower struct {
 	context              *DatabaseContext // Database
 	bucket               base.Bucket      // External bucket we sync with

@@ -13,8 +13,8 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/couchbase/sync_gateway/base"
-	"github.com/couchbase/sync_gateway/channels"
+	"github.com/yoshrote/sync_gateway/base"
+	"github.com/yoshrote/sync_gateway/channels"
 )
 
 const (
@@ -275,7 +275,7 @@ func (db *Database) VectorMultiChangesFeed(chans base.Set, options ChangesOption
 func (db *Database) checkForUserUpdatesSince(userChangeCount uint64, changeWaiter *changeWaiter, isContinuous bool, previousChannels channels.TimedSet, since base.SequenceClock) (isChanged bool, newCount uint64, newChannels base.Set, err error) {
 
 	newCount = changeWaiter.CurrentUserCount()
-	// If not continuous, we force user reload as a workaround for https://github.com/couchbase/sync_gateway/issues/2068.  For continuous, #2068 is handled by addedChannels check, and
+	// If not continuous, we force user reload as a workaround for https://github.com/yoshrote/sync_gateway/issues/2068.  For continuous, #2068 is handled by addedChannels check, and
 	// we can reload only when there's been a user change notification
 	if newCount > userChangeCount || !isContinuous {
 		var newChannels base.Set

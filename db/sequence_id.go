@@ -7,7 +7,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/couchbase/sync_gateway/base"
+	"github.com/yoshrote/sync_gateway/base"
 )
 
 // A change sequence as reported externally in a _changes feed.

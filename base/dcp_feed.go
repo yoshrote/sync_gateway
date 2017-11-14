@@ -252,7 +252,7 @@ func (r *DCPReceiver) RollbackEx(vbucketId uint16, vbucketUUID uint64, rollbackS
 // (whic.  Setting warnOnLowerSeqNo to true will check
 // if we are setting the seq number to a _lower_ value than we already have stored for that
 // vbucket and log a warning in that case.  The valid case for setting warnOnLowerSeqNo to
-// false is when it's a rollback scenario.  See https://github.com/couchbase/sync_gateway/issues/1098 for dev notes.
+// false is when it's a rollback scenario.  See https://github.com/yoshrote/sync_gateway/issues/1098 for dev notes.
 func (r *DCPReceiver) updateSeq(vbucketId uint16, seq uint64, warnOnLowerSeqNo bool) {
 	r.m.Lock()
 	defer r.m.Unlock()

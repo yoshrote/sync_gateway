@@ -15,8 +15,8 @@ import (
 	"log"
 	"testing"
 
-	"github.com/couchbase/sync_gateway/base"
-	"github.com/couchbase/sync_gateway/channels"
+	"github.com/yoshrote/sync_gateway/base"
+	"github.com/yoshrote/sync_gateway/channels"
 	"github.com/couchbaselabs/go.assert"
 )
 

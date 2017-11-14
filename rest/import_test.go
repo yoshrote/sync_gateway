@@ -9,8 +9,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/couchbase/sync_gateway/base"
-	"github.com/couchbase/sync_gateway/db"
+	"github.com/yoshrote/sync_gateway/base"
+	"github.com/yoshrote/sync_gateway/db"
 	"github.com/couchbaselabs/go.assert"
 )
 
@@ -21,7 +21,7 @@ func SkipImportTestsIfNotEnabled(t *testing.T) {
 	}
 
 	if base.UnitTestUrlIsWalrus() {
-		t.Skip("This test won't work under walrus until https://github.com/couchbase/sync_gateway/issues/2390")
+		t.Skip("This test won't work under walrus until https://github.com/yoshrote/sync_gateway/issues/2390")
 	}
 }
 

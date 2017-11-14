@@ -10,8 +10,8 @@
 package auth
 
 import (
-	"github.com/couchbase/sync_gateway/base"
-	ch "github.com/couchbase/sync_gateway/channels"
+	"github.com/yoshrote/sync_gateway/base"
+	ch "github.com/yoshrote/sync_gateway/channels"
 )
 
 // A Principal is an abstract object that can have access to channels.

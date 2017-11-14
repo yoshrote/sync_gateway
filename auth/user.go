@@ -18,8 +18,8 @@ import (
 
 	"golang.org/x/crypto/bcrypt"
 
-	"github.com/couchbase/sync_gateway/base"
-	ch "github.com/couchbase/sync_gateway/channels"
+	"github.com/yoshrote/sync_gateway/base"
+	ch "github.com/yoshrote/sync_gateway/channels"
 )
 
 const kBcryptCostFactor = bcrypt.DefaultCost

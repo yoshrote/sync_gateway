@@ -2,7 +2,7 @@
 Building From Source (via repo)
 -------------------------------
 
-In order to build with [pinned dependencies](https://github.com/couchbase/sync_gateway/blob/master/manifest/default.xml), you will need to use the the `repo` multi-repository tool.
+In order to build with [pinned dependencies](https://github.com/yoshrote/sync_gateway/blob/master/manifest/default.xml), you will need to use the the `repo` multi-repository tool.
 
 **Install prequisites**
 
@@ -38,7 +38,7 @@ To build Sync Gateway from source and run the unit tests, run:
 $ ./build.sh && ./test.sh
 ```
 
-If you run into a `gpg: Can't check signature: public key not found` error, see [issue 1654](https://github.com/couchbase/sync_gateway/issues/1654) for help.
+If you run into a `gpg: Can't check signature: public key not found` error, see [issue 1654](https://github.com/yoshrote/sync_gateway/issues/1654) for help.
 
 **Bootstrap variations: start on a different commit**
 
@@ -54,7 +54,7 @@ Make sure the `repo status` doesn't show any uncommitted changes.  For example i
 
 ```bash
 $ repo status
-project godeps/src/github.com/couchbase/sync_gateway/ branch feature/fix_snap_manifest_rebased
+project godeps/src/github.com/yoshrote/sync_gateway/ branch feature/fix_snap_manifest_rebased
  -m     docs/BUILD.md
 project godeps/src/github.com/couchbaselabs/sync-gateway-accel/ branch master
 project godeps/src/github.com/couchbaselabs/walrus/ branch feature/sg_2418_sgbucket_interface
@@ -126,7 +126,7 @@ Unit Testing options
 
 ```
 $ export GOPATH=`pwd`/godeps
-$ go test -v -run ^TestChangesAfterChannelAdded$ github.com/couchbase/sync_gateway/...
+$ go test -v -run ^TestChangesAfterChannelAdded$ github.com/yoshrote/sync_gateway/...
 ```
 
 **Couchbase Server**
@@ -135,7 +135,7 @@ Install Couchbase Server locally and set the Administrator username / password t
 
 ```
 $ export GOPATH=`pwd`/godeps
-$ SG_TEST_BACKING_STORE=Couchbase go test -v -run ^TestChangesAfterChannelAdded$ github.com/couchbase/sync_gateway/...
+$ SG_TEST_BACKING_STORE=Couchbase go test -v -run ^TestChangesAfterChannelAdded$ github.com/yoshrote/sync_gateway/...
 ```
 
 ### Running full set of unit tests against Couchbase Server

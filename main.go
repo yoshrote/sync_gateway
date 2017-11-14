@@ -16,8 +16,8 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/couchbase/sync_gateway/base"
-	"github.com/couchbase/sync_gateway/rest"
+	"github.com/yoshrote/sync_gateway/base"
+	"github.com/yoshrote/sync_gateway/rest"
 )
 
 func init() {

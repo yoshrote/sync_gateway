@@ -21,7 +21,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/couchbase/sync_gateway/base"
+	"github.com/yoshrote/sync_gateway/base"
 	"github.com/couchbaselabs/go.assert"
 )
 
@@ -550,7 +550,7 @@ func TestGenerationLongestTombstonedBranch(t *testing.T) {
 
 }
 
-// Tests for updated pruning algorithm, post https://github.com/couchbase/sync_gateway/issues/2651
+// Tests for updated pruning algorithm, post https://github.com/yoshrote/sync_gateway/issues/2651
 func TestPruneRevisionsPostIssue2651ThreeBranches(t *testing.T) {
 
 	// Try large rev tree with multiple branches
@@ -753,7 +753,7 @@ func TestTrimEncodedRevisionsToAncestor(t *testing.T) {
 	assert.DeepEquals(t, trimmedRevs, Body{"start": 5, "ids": []string{"huey", "dewey"}})
 }
 
-// Regression test for https://github.com/couchbase/sync_gateway/issues/2847
+// Regression test for https://github.com/yoshrote/sync_gateway/issues/2847
 func TestRevsHistoryInfiniteLoop(t *testing.T) {
 
 	docId := "testdocProblematicRevTree"
@@ -778,7 +778,7 @@ func TestRevsHistoryInfiniteLoop(t *testing.T) {
 
 }
 
-// Repair tool for https://github.com/couchbase/sync_gateway/issues/2847
+// Repair tool for https://github.com/yoshrote/sync_gateway/issues/2847
 func TestRepairRevsHistoryWithCycles(t *testing.T) {
 
 	base.EnableLogKey("CRUD")
@@ -815,7 +815,7 @@ func TestRepairRevsHistoryWithCycles(t *testing.T) {
 
 // TODO: add test for two tombstone branches getting pruned at once
 
-// Repro case for https://github.com/couchbase/sync_gateway/issues/2847
+// Repro case for https://github.com/yoshrote/sync_gateway/issues/2847
 func TestRevisionPruningLoop(t *testing.T) {
 
 	revsLimit := uint32(5)

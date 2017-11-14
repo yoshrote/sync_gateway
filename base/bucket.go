@@ -336,7 +336,7 @@ func GetStatsVbSeqno(stats map[string]map[string]string, maxVbno uint16, useAbsH
 			//   vb_nn:purge_seqno
 			uuidKey := fmt.Sprintf("vb_%d:uuid", i)
 
-			// workaround for https://github.com/couchbase/sync_gateway/issues/1371
+			// workaround for https://github.com/yoshrote/sync_gateway/issues/1371
 			highSeqnoKey := ""
 			if useAbsHighSeqNo {
 				highSeqnoKey = fmt.Sprintf("vb_%d:abs_high_seqno", i)

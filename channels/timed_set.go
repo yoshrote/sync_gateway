@@ -16,7 +16,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/couchbase/sync_gateway/base"
+	"github.com/yoshrote/sync_gateway/base"
 )
 
 // Vb and Sequence struct that's compatible with sequence-only (global sequence) mode

@@ -23,9 +23,9 @@ import (
 	"bytes"
 	"net/http"
 
-	"github.com/couchbase/sync_gateway/base"
-	"github.com/couchbase/sync_gateway/channels"
-	"github.com/couchbase/sync_gateway/db"
+	"github.com/yoshrote/sync_gateway/base"
+	"github.com/yoshrote/sync_gateway/channels"
+	"github.com/yoshrote/sync_gateway/db"
 )
 
 type indexTester struct {
@@ -604,7 +604,7 @@ func postChangesAdminChannelGrant(t *testing.T, it indexTester) {
 func TestChangesLoopingWhenLowSequence(t *testing.T) {
 
 	if base.TestUseXattrs() {
-		t.Skip("This test cannot run in xattr mode until WriteDirect() is updated.  See https://github.com/couchbase/sync_gateway/issues/2666#issuecomment-311183219")
+		t.Skip("This test cannot run in xattr mode until WriteDirect() is updated.  See https://github.com/yoshrote/sync_gateway/issues/2666#issuecomment-311183219")
 	}
 
 	pendingMaxWait := uint32(5)
@@ -1311,7 +1311,7 @@ func TestChangesActiveOnlyWithLimit(t *testing.T) {
 }
 
 // Test active-only and limit handling during cache backfill from the view.  Flushes the channel cache
-// prior to changes requests in order to force view backfill.  Covers https://github.com/couchbase/sync_gateway/issues/2955 in
+// prior to changes requests in order to force view backfill.  Covers https://github.com/yoshrote/sync_gateway/issues/2955 in
 // additional to general view handling.
 func TestChangesActiveOnlyWithLimitAndViewBackfill(t *testing.T) {
 
@@ -1474,7 +1474,7 @@ func TestChangesActiveOnlyWithLimitAndViewBackfill(t *testing.T) {
 		}
 	}
 
-	// No limit active only, GET, followed by normal (https://github.com/couchbase/sync_gateway/issues/2955)
+	// No limit active only, GET, followed by normal (https://github.com/yoshrote/sync_gateway/issues/2955)
 	testDb.FlushChannelCache()
 	changes.Results = nil
 	changesResponse = it.Send(requestByUser("GET", "/db/_changes?style=all_docs&active_only=true", "", "bernard"))

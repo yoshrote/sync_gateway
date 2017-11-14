@@ -17,7 +17,7 @@ import (
 	"math"
 	"strconv"
 
-	"github.com/couchbase/sync_gateway/base"
+	"github.com/yoshrote/sync_gateway/base"
 )
 
 type RevKey string
@@ -782,7 +782,7 @@ func trimEncodedRevisionsToAncestor(revs Body, ancestors []string, maxUnmatchedL
 	if maxUnmatchedLen < len(digests) {
 		// Make a shallow copy here in order to avoid data races where multiple goroutines are
 		// modifying the same underlying map returned from the revision cache.
-		// See https://github.com/couchbase/sync_gateway/issues/2427
+		// See https://github.com/yoshrote/sync_gateway/issues/2427
 		trimmedRevs = revs.ShallowCopy()
 		trimmedRevs["ids"] = digests[0:maxUnmatchedLen]
 	}

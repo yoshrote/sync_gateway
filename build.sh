@@ -29,7 +29,7 @@ updateVersionStamp
 
 ## Go Install Sync Gateway
 echo "Building Sync Gateway with 'go install' ..."
-go install "$@" github.com/couchbase/sync_gateway/...
+go install "$@" github.com/yoshrote/sync_gateway/...
 echo "Success!"
 # Let user where to know where to find binaries
 if [ -f godeps/bin/sync_gateway ]; then

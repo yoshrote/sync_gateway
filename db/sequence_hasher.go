@@ -20,7 +20,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/couchbase/sync_gateway/base"
+	"github.com/yoshrote/sync_gateway/base"
 )
 
 const kHashPrefix = "_sequence:"

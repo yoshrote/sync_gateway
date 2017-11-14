@@ -19,8 +19,8 @@ import (
 
 	"bytes"
 	"fmt"
-	"github.com/couchbase/sync_gateway/base"
-	"github.com/couchbase/sync_gateway/channels"
+	"github.com/yoshrote/sync_gateway/base"
+	"github.com/yoshrote/sync_gateway/channels"
 )
 
 // Unit test for bug #314
@@ -291,7 +291,7 @@ func TestDocDeletionFromChannelCoalesced(t *testing.T) {
 	printChanges(changes)
 }
 
-// Benchmark to validate fix for https://github.com/couchbase/sync_gateway/issues/2428
+// Benchmark to validate fix for https://github.com/yoshrote/sync_gateway/issues/2428
 func BenchmarkChangesFeedDocUnmarshalling(b *testing.B) {
 
 	db, testBucket := setupTestDBWithCacheOptions(b, CacheOptions{})

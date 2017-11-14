@@ -15,7 +15,7 @@ import (
 	"math/rand"
 	"testing"
 
-	"github.com/couchbase/sync_gateway/base"
+	"github.com/yoshrote/sync_gateway/base"
 	"github.com/couchbaselabs/go.assert"
 )
 

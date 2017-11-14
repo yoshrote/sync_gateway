@@ -16,7 +16,7 @@ if [ "$SG_TEST_BACKING_STORE" == "Couchbase" ] || [ "$SG_TEST_BACKING_STORE" == 
 fi
 
 echo "Running Sync Gateway unit tests"
-go test -v "$@" $EXTRA_FLAGS github.com/couchbase/sync_gateway/...
+go test -v "$@" $EXTRA_FLAGS github.com/yoshrote/sync_gateway/...
 
 if [ -d godeps/src/github.com/couchbaselabs/sync-gateway-accel ]; then
     echo "Running Sync Gateway Accel unit tests"

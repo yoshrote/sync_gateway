@@ -11,7 +11,7 @@ import "syscall"
 // - SG docs
 //   http://developer.couchbase.com/documentation/mobile/1.1.0/develop/guides/sync-gateway/os-level-tuning/max-file-descriptors/index.html
 // - Related SG issues
-//   https://github.com/couchbase/sync_gateway/issues/1083
+//   https://github.com/yoshrote/sync_gateway/issues/1083
 // - Hard limit vs Soft limit
 //   http://unix.stackexchange.com/questions/29577/ulimit-difference-between-hard-and-soft-limits
 func SetMaxFileDescriptors(requestedSoftFDLimit uint64) (uint64, error) {

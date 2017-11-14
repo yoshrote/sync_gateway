@@ -12,8 +12,8 @@ package rest
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/couchbase/sync_gateway/base"
-	"github.com/couchbase/sync_gateway/db"
+	"github.com/yoshrote/sync_gateway/base"
+	"github.com/yoshrote/sync_gateway/db"
 	"math"
 	"mime/multipart"
 	"net/http"

@@ -7,7 +7,7 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/couchbase/sync_gateway/base"
+	"github.com/yoshrote/sync_gateway/base"
 )
 
 // An implementation of http.ResponseWriter that wraps another instance and transparently applies
@@ -29,7 +29,7 @@ func NewEncodedResponseWriter(response http.ResponseWriter, rq *http.Request) *E
 		return nil
 	}
 
-	// Workaround for https://github.com/couchbase/sync_gateway/issues/1419
+	// Workaround for https://github.com/yoshrote/sync_gateway/issues/1419
 	// if the user agent is empty or earlier than 1.2, then we never want to gzip
 	// the entire response for requests to the _bulk_get endpoint, since the clients
 	// are not equipped to handle that.

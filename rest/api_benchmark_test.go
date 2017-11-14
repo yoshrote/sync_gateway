@@ -7,8 +7,8 @@ import (
 	"testing"
 
 	"github.com/couchbase/goutils/logging"
-	"github.com/couchbase/sync_gateway/base"
-	"github.com/couchbase/sync_gateway/db"
+	"github.com/yoshrote/sync_gateway/base"
+	"github.com/yoshrote/sync_gateway/db"
 )
 
 var doc_1k_format = `{%s

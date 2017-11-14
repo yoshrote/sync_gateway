@@ -18,8 +18,8 @@ import (
 
 	"github.com/couchbaselabs/go.assert"
 
-	"github.com/couchbase/sync_gateway/base"
-	ch "github.com/couchbase/sync_gateway/channels"
+	"github.com/yoshrote/sync_gateway/base"
+	ch "github.com/yoshrote/sync_gateway/channels"
 )
 
 func canSeeAllChannels(princ Principal, channels base.Set) bool {

@@ -25,7 +25,7 @@ import (
 	"net/textproto"
 	"strings"
 
-	"github.com/couchbase/sync_gateway/base"
+	"github.com/yoshrote/sync_gateway/base"
 )
 
 // Attachments shorter than this will be left in the JSON as base64 rather than being a separate

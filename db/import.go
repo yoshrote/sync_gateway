@@ -6,7 +6,7 @@ import (
 	"strconv"
 
 	sgbucket "github.com/couchbase/sg-bucket"
-	"github.com/couchbase/sync_gateway/base"
+	"github.com/yoshrote/sync_gateway/base"
 	"github.com/robertkrimen/otto"
 )
 
@@ -137,7 +137,7 @@ func (db *Database) importDoc(docid string, body Body, isDelete bool, existingDo
 			if shouldImport == false {
 				base.LogTo("Import+", "Doc %s excluded by document import function - will not be imported.", docid)
 				// TODO: If this document has a current revision (this is a document that was previously mobile-enabled), do additional opt-out processing
-				// pending https://github.com/couchbase/sync_gateway/issues/2750
+				// pending https://github.com/yoshrote/sync_gateway/issues/2750
 				return nil, nil, base.ErrImportCancelledFilter
 			}
 		}

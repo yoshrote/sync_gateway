@@ -14,7 +14,7 @@ import (
 	"testing"
 )
 
-/* Commented due to https://github.com/couchbase/sync_gateway/issues/1659
+/* Commented due to https://github.com/yoshrote/sync_gateway/issues/1659
 func TestVerifyFacebook(t *testing.T) {
 
 	testServer := fakehttp.NewHTTPServer()

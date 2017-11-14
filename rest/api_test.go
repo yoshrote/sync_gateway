@@ -27,10 +27,10 @@ import (
 	"testing"
 	"time"
 
-	"github.com/couchbase/sync_gateway/auth"
-	"github.com/couchbase/sync_gateway/base"
-	"github.com/couchbase/sync_gateway/channels"
-	"github.com/couchbase/sync_gateway/db"
+	"github.com/yoshrote/sync_gateway/auth"
+	"github.com/yoshrote/sync_gateway/base"
+	"github.com/yoshrote/sync_gateway/channels"
+	"github.com/yoshrote/sync_gateway/db"
 	"github.com/couchbaselabs/go.assert"
 	"github.com/robertkrimen/otto/underscore"
 )
@@ -2673,7 +2673,7 @@ func TestEventConfigValidationInvalid(t *testing.T) {
 
 }
 
-// Reproduces https://github.com/couchbase/sync_gateway/issues/2427
+// Reproduces https://github.com/yoshrote/sync_gateway/issues/2427
 // NOTE: to repro, you must run with -race flag
 func TestBulkGetRevPruning(t *testing.T) {
 
@@ -2734,7 +2734,7 @@ func TestBulkGetRevPruning(t *testing.T) {
 
 }
 
-// Reproduces panic seen in https://github.com/couchbase/sync_gateway/issues/2528
+// Reproduces panic seen in https://github.com/yoshrote/sync_gateway/issues/2528
 func TestBulkGetBadAttachmentReproIssue2528(t *testing.T) {
 
 	var rt RestTester
@@ -3023,7 +3023,7 @@ func TestDocSyncFunctionExpiry(t *testing.T) {
 	log.Printf("value: %v", value)
 }
 
-// Reproduces https://github.com/couchbase/sync_gateway/issues/916.  The test-only RestartListener operation used to simulate a
+// Reproduces https://github.com/yoshrote/sync_gateway/issues/916.  The test-only RestartListener operation used to simulate a
 // SG restart isn't race-safe, so disabling the test for now.  Should be possible to reinstate this as a proper unit test
 // once we add the ability to take a bucket offline/online.
 func DisabledTestLongpollWithWildcard(t *testing.T) {

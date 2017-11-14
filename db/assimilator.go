@@ -3,7 +3,7 @@ package db
 import (
 	"github.com/couchbase/go-couchbase"
 
-	"github.com/couchbase/sync_gateway/base"
+	"github.com/yoshrote/sync_gateway/base"
 )
 
 // A goroutine that watches the tapListener for documents that don't have
